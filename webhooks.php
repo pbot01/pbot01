@@ -56,9 +56,9 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 			
-			$servername = "178.128.218.126";
-			$username = "root";
-			$password = "qwerty12345";
+			$servername = "pbot01.hopto.org";
+			$username = "research_usr";
+			$password = "123456789";
 			$dbname = "pbot01";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
@@ -66,7 +66,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (user_id, message) VALUES ('".$uid."', '".$ms."')";
+			$sql = "INSERT INTO chatbot (time,user_id, message) VALUES (SYSDATE(),'".$uid."', '".$ms."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
