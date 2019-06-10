@@ -66,8 +66,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (time, user_id, message)
-			VALUES ('.$dt.', '.$uid.', '.$ms.')";
+			$sql = "INSERT INTO chatbot (user_id, message) VALUES ('".$uid."', '".$ms."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
