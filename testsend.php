@@ -1,5 +1,5 @@
 <?php
-			$servername = "178.128.218.126";
+			$servername = "pbot01.hopto.org";
 			$username = "root";
 			$password = "qwerty12345";
 			$dbname = "pbot01";
