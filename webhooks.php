@@ -1,5 +1,5 @@
 <?php // callback.php
-
+header('Content-type:text/html; charset=utf-8');
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
@@ -17,6 +17,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			
+			$uid = $event['source']['userId'];
 			$uid = $event['source']['userId'];
 			$dt= date('Y-m-d H:i:s');
 			$ms= $event['message']['text'];
@@ -63,6 +64,7 @@ if (!is_null($events['events'])) {
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
+			mysqli_set_charset($conn,"utf8");
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
