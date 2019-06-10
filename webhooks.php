@@ -16,6 +16,10 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
+			
+			$uid = $event['source']['userId'];
+			$dt= date('Y-m-d H:i:s');
+			$ms= $event['message']['text'];
 			$text = $event['source']['userId'].' ';
 			$text .= date('Y-m-d H:i:s').' ';
 			$text .= $event['message']['text'].' ';
@@ -51,6 +55,26 @@ if (!is_null($events['events'])) {
 
 
 			echo $result . "\r\n";
+			
+			$servername = "178.128.218.126";
+			$username = "root";
+			$password = "qwerty12345";
+			$dbname = "pbot01";
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+			} 
+			$sql = "INSERT INTO chatbot (time, user_id, message)
+			VALUES ('.$dt.', '.$uid.', '.$ms.')";
+			if ($conn->query($sql) === TRUE) {
+				
+				$text = "success";
+			} else {
+			    	$text = "fail";
+			}
+			$conn->close();
 		}
 		else {
 			
