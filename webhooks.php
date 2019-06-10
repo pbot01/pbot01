@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			
 			$uid = $event['source']['userId'];
-			$gid = $event['source']['groupId'];
+			//$gid = $event['source']['groupId'];
 			$dt= date('Y-m-d H:i:s');
 			$ms= $event['message']['text'];
 			$text = $event['source']['userId'].' ';
@@ -43,15 +43,15 @@ if (!is_null($events['events'])) {
 			];
 
 			$post = json_encode($data);
-// 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-// 			$ch = curl_init($url);
-// 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-// 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-// 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// 			$result = curl_exec($ch);
-// 			curl_close($ch);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
 
 
 
@@ -68,7 +68,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (group_id,time,user_id, message) VALUES ('".$gid."',SYSDATE(),'".$uid."', '".$ms."')";
+			$sql = "INSERT INTO chatbot (time,user_id, message) VALUES (SYSDATE(),'".$uid."', '".$ms."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
