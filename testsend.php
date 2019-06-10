@@ -1,7 +1,7 @@
 <?php
 			$servername = "pbot01.hopto.org";
-			$username = "root";
-			$password = "qwerty12345";
+			$username = "research_usr";
+			$password = "123456789";
 			$dbname = "pbot01";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
