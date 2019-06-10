@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 			// Get text sent
 			
 			$uid = $event['source']['userId'];
-			//$gid = $event['source']['groupId'];
+			$gid = $event['source']['groupId'];
 			$dt= date('Y-m-d H:i:s');
 			$ms= $event['message']['text'];
 			$text = $event['source']['userId'].' ';
@@ -68,7 +68,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (time,user_id, message) VALUES (SYSDATE(),'".$uid."', '".$ms."')";
+			$sql = "INSERT INTO chatbot (time,user_id,message,group_id) VALUES (SYSDATE(),'".$uid."', '".$ms."', '".$gid."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
