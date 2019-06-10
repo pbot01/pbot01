@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'].' ';
 			$text .= date('Y-m-d H:i:s').' ';
 			$text .= $event['message']['text'].' ';
-	
+			$text = $content;
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
