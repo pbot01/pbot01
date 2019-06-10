@@ -1,17 +1,22 @@
-<html>
-	<head> 
-		<script>
-			$.ajax({ 
-			   type : "GET", 
-			   url : "https://api.line.me/v2/bot/message/10016075093981/content", 
-			   beforeSend: function(xhr){xhr.setRequestHeader('Authorization', 'Bearer la3nQ7rJ7FR8r0eTQPiYFfeE1vHNVIcdS4OoqTvWuRw/tGu9WG/joyP4vPOnQBqrv1yoQeM09Zpft/LYPj4FcqF0fEHWXLbqzb1gaTZSxuVOwQrSKYZLYDck8hN/7PCuKeEWSlXfuR2iLyUTTRgovwdB04t89/1O/w1cDnyilFU=');},
-			   success : function(result) { 
-			       //set your variable to the result 
-			   }, 
-			   error : function(result) { 
-			     //handle the error 
-			   } 
-			 }); 
-		</script>
-	</head>
-</html>
+<?php
+			$servername = "178.128.218.126";
+			$username = "root";
+			$password = "qwerty12345";
+			$dbname = "pbot01";
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+				
+			} 
+			$sql = "INSERT INTO chatbot ( user_id, message) VALUES ('test', 'test')";
+			if ($conn->query($sql) === TRUE) {
+				echo "success";
+
+			} else {
+			    	echo "fail";
+
+			}
+			$conn->close();
+?>
