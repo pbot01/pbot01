@@ -94,7 +94,10 @@ if (!is_null($events['events'])) {
 			$conn->close();
 		}
 		else {
-			
+			$uid = $event['source']['userId'];
+			$gid = $event['source']['groupId'];
+			$dt= date('Y-m-d H:i:s');
+
 			$text .= $content;
 			
 			// Get replyToken
@@ -121,8 +124,20 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
+			//get display name
+			$url = "https://api.line.me/v2/bot/profile/".$uid;
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			$result = curl_exec($ch);
+			//echo $result;
+			$profile =  json_decode($result, true); 
+			$disname = $profile['displayName'];
+			curl_close($ch);
 
-			if($event['type'] == 'image')
+			if($event['message']['type'] == 'image')
 			{
 
 				$url = "https://api.line.me/v2/bot/message/".$event['message']['id']."/content";
@@ -136,9 +151,7 @@ if (!is_null($events['events'])) {
 				$result = curl_exec($ch);
 				//header('Content-type: image/jpeg');
 				//echo $result;
-				$uid = $event['source']['userId'];
-				$gid = $event['source']['groupId'];
-				$dt= date('Y-m-d H:i:s');
+
 				$ms= $result;
 
 
@@ -162,8 +175,8 @@ if (!is_null($events['events'])) {
 				}
 				$conn->close();
 			}
-			
 			echo $result . "\r\n";
 		}
 	}
 }
+echo "OK";
