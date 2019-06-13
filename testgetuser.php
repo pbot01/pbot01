@@ -14,7 +14,9 @@ $url = "https://api.line.me/v2/bot/profile/U935fd498360db058d05404b3006cfa3a";
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
-echo $result;
+$profile =  json_decode($result, true); 
+			$disname = $profile['displayName'];
+echo $disname;
 			curl_close($ch);
 
 
