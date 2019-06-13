@@ -94,26 +94,35 @@ if (!is_null($events['events'])) {
 			$conn->close();
 		}
 		else {
+						// Get text sent
 			$uid = $event['source']['userId'];
 			$gid = $event['source']['groupId'];
 			$dt= date('Y-m-d H:i:s');
-
-			$text .= $content;
-			
-			// Get replyToken
+			$ms= $event['message']['id'];
+			$text = $event['source']['userId'].' ';
+			$text .= date('Y-m-d H:i:s').' ';
+			$text .= $event['message']['id'].' ';
+			$text = $content;
 			$replyToken = $event['replyToken'];
+
 			// Build message to reply back
+
 			$messages = [
 				'type' => 'text',
 				'text' => $text
 			];
+
 			// Make a POST Request to Messaging API to reply to sender
+
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
 				'messages' => [$messages],
 			];
+
 			$post = json_encode($data);
+		
+			// reply message	
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -125,6 +134,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			//get display name
+			
 			$url = "https://api.line.me/v2/bot/profile/".$uid;
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
@@ -136,46 +146,30 @@ if (!is_null($events['events'])) {
 			$profile =  json_decode($result, true); 
 			$disname = $profile['displayName'];
 			curl_close($ch);
+			
+			
 
-			if($event['message']['type'] == 'image')
-			{
-
-				$url = "https://api.line.me/v2/bot/message/".$event['message']['id']."/content";
-				$headers = array('Content-Type: image/jpeg', 'Authorization: Bearer ' . $access_token);
-				$ch = curl_init($url);
-				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-				//curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-				//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-				$result = curl_exec($ch);
-				//header('Content-type: image/jpeg');
-				//echo $result;
-
-				$ms= $result;
-
-
-				$servername = "pbot01.hopto.org";
-				$username = "research_usr";
-				$password = "123456789";
-				$dbname = "pbot01";
-				// Create connection
-				$conn = new mysqli($servername, $username, $password, $dbname);
-				// Check connection
-				mysqli_set_charset($conn,"utf-8");
-				if ($conn->connect_error) {
-				    die("Connection failed: " . $conn->connect_error);
-				} 
-				$sql = "INSERT INTO chatbot (message_type,time,user_id,message,group_id,displayname) VALUES ('image',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
-				if ($conn->query($sql) === TRUE) {
-					
-					$text = "success";
-				} else {
-				    	$text = "fail";
-				}
-				$conn->close();
-			}
 			echo $result . "\r\n";
+			
+			$servername = "pbot01.hopto.org";
+			$username = "research_usr";
+			$password = "123456789";
+			$dbname = "pbot01";
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			mysqli_set_charset($conn,"utf-8");
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+			} 
+			$sql = "INSERT INTO chatbot (message_type,time,user_id,message,group_id,displayname) VALUES ('image',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			if ($conn->query($sql) === TRUE) {
+				
+				$text = "success";
+			} else {
+			    	$text = "fail";
+			}
+			$conn->close();
 		}
 	}
 }
