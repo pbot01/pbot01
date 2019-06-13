@@ -63,5 +63,19 @@ $access_token = 'HyW97ugLh5mEBYG+G2VCRbXrfqajv+kOrR+uHtkyItGUABVj7AfJ3+gp8j0VykA
 				header('Content-type: image/jpeg');
 				echo $result;
 			}
+			else if($ty=="audio")
+			{
+				$url = "https://api.line.me/v2/bot/message/".$m_id."/content";
+				$headers = array('Content-Type: audio/mpeg', 'Authorization: Bearer ' . $access_token);
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				//curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				header('Content-type: audio/mpeg');
+				echo $result;
+			}
 			else
 				echo $m_id;
