@@ -94,7 +94,10 @@ if (!is_null($events['events'])) {
 			$conn->close();
 		}
 		else {
-			
+			$uid = $event['source']['userId'];
+			$gid = $event['source']['groupId'];
+			$dt= date('Y-m-d H:i:s');
+
 			$text .= $content;
 			
 			// Get replyToken
@@ -120,7 +123,21 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			if($event['type'] == 'image')
+
+			//get display name
+			$url = "https://api.line.me/v2/bot/profile/".$uid;
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			$result = curl_exec($ch);
+			//echo $result;
+			$profile =  json_decode($result, true); 
+			$disname = $profile['displayName'];
+			curl_close($ch);
+
+			if($event['message']['type'] == 'image')
 			{
 
 				$url = "https://api.line.me/v2/bot/message/".$event['message']['id']."/content";
