@@ -151,9 +151,7 @@ if (!is_null($events['events'])) {
 				$result = curl_exec($ch);
 				//header('Content-type: image/jpeg');
 				//echo $result;
-				$uid = $event['source']['userId'];
-				$gid = $event['source']['groupId'];
-				$dt= date('Y-m-d H:i:s');
+
 				$ms= $result;
 
 
