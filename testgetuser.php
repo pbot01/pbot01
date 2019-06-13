@@ -17,8 +17,8 @@ $url = "https://api.line.me/v2/bot/message/10036084556718/content";
 // $profile =  json_decode($result, true); 
 // 			$disname = $profile['displayName'];
 //The cURL stuff...
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, '$url');
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_BINARYTRANSFER,1);
