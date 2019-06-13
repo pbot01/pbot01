@@ -15,7 +15,7 @@ $access_token = 'HyW97ugLh5mEBYG+G2VCRbXrfqajv+kOrR+uHtkyItGUABVj7AfJ3+gp8j0VykA
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
-			mysqli_set_charset($conn,"utf-8");
+			mysqli_set_charset($conn,"utf8");
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
