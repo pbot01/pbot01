@@ -84,7 +84,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (time,user_id,message,group_id,displayname) VALUES (SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			$sql = "INSERT INTO chatbot (message_type,time,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
@@ -120,7 +120,46 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			
+			if($event['type'] == 'image')
+			{
+
+				$url = "https://api.line.me/v2/bot/message/".$event['message']['id']."/content";
+				$headers = array('Content-Type: image/jpeg', 'Authorization: Bearer ' . $access_token);
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				//curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+				//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				$result = curl_exec($ch);
+				//header('Content-type: image/jpeg');
+				//echo $result;
+				$uid = $event['source']['userId'];
+				$gid = $event['source']['groupId'];
+				$dt= date('Y-m-d H:i:s');
+				$ms= $result;
+
+
+				$servername = "pbot01.hopto.org";
+				$username = "research_usr";
+				$password = "123456789";
+				$dbname = "pbot01";
+				// Create connection
+				$conn = new mysqli($servername, $username, $password, $dbname);
+				// Check connection
+				mysqli_set_charset($conn,"utf-8");
+				if ($conn->connect_error) {
+				    die("Connection failed: " . $conn->connect_error);
+				} 
+				$sql = "INSERT INTO chatbot (message_type,time,user_id,message,group_id,displayname) VALUES ('image',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+				if ($conn->query($sql) === TRUE) {
+					
+					$text = "success";
+				} else {
+				    	$text = "fail";
+				}
+				$conn->close();
+			}
 			echo $result . "\r\n";
 		}
 	}
