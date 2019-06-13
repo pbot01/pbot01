@@ -16,7 +16,7 @@ $url = "https://api.line.me/v2/bot/message/10036084556718/content";
 			$result = curl_exec($ch);
 // $profile =  json_decode($result, true); 
 // 			$disname = $profile['displayName'];
-echo "<img src='".$result."' alt='Image'/>";
+echo "<img src='data:image/jpeg;base64,".$result."' alt='Image'/>";
 			curl_close($ch);
 
 
