@@ -43,6 +43,24 @@ if (!is_null($events['events'])) {
 			];
 
 			$post = json_encode($data);
+			
+			
+			$url = "https://api.line.me/v2/bot/profile/U935fd498360db058d05404b3006cfa3a";
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			//curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			//echo $result;
+			$profile =  json_decode($result, true); 
+			$disname = $profile['displayName'];
+			curl_close($ch);
+			
+			
+			
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
