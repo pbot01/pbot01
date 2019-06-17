@@ -5,7 +5,7 @@ header('Content-type:text/html; charset=utf-8');
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
-$access_token = 'HyW97ugLh5mEBYG+G2VCRbXrfqajv+kOrR+uHtkyItGUABVj7AfJ3+gp8j0VykAov1yoQeM09Zpft/LYPj4FcqF0fEHWXLbqzb1gaTZSxuUkTrYUWIzQBqf8v39IGKVW3G3+wwZ3xEAgcPgggMGNyAdB04t89/1O/w1cDnyilFU=';
+$access_token = 'RhQrCpgxwJ3DUCe2/uDut4sgB9cTSFx7XJ0337EKGUgs6b/Jr3haYG51CRlsK3OHY77Gn5rYCYrcjLFCD2Rsdq813OPLWNSOpfV5jGuVOfWLYoNXODd633yT7wNlnIhTEw/6aFxep0doAcFYp8YTbQdB04t89/1O/w1cDnyilFU=';
 
 
 			$servername = "pbot01.hopto.org";
