@@ -27,6 +27,24 @@ if (!is_null($events['events'])) {
 			$text = $content;
 			$replyToken = $event['replyToken'];
 
+			
+			
+			//get display name
+			
+			$url = "https://api.line.me/v2/bot/profile/".$uid;
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			$result = curl_exec($ch);
+			//echo $result;
+			$profile =  json_decode($result, true); 
+			$disname = $profile['displayName'];
+			curl_close($ch);
+			$text .= $disname;
+			
+			
 			// Build message to reply back
 
 			$messages = [
@@ -71,28 +89,6 @@ if (!is_null($events['events'])) {
 			
 			
 			
-			// reply message debug
-			$text = $disname;
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			
-			$post = json_encode($data);
-			
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
 			
 
 			echo $result . "\r\n";
