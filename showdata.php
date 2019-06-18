@@ -100,7 +100,7 @@
 								    echo "<td>".$row["displayname"]."</td>";
 								    echo "<td>".$row["message_type"]."</td>";
 								    echo "<td>";
-									if($row["message_type"] == "location" || $row["message_type"] =="message")
+									if($row["message_type"] == "location" || $row["message_type"] =="text")
 										echo $row["message"];
 									else
 										echo "<center><a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a></center>";
