@@ -92,7 +92,7 @@
 
 								$m_id = "";
 								$ty = "";
-								$sql = "SELECT * FROM chatbot ";
+								$sql = "SELECT *,CONVERT_TZ(time,'+00:00','+07:00') as timez FROM chatbot ";
 								$result = $conn->query($sql);
 
 								if ($result->num_rows > 0) {
@@ -101,7 +101,7 @@
 									    if($row["message_type"]!="")
 									    {
 									    echo "<tr>";
-									    echo "<td>".$row["time"]."</td>";
+									    echo "<td>".$row["timez"]."</td>";
 									    echo "<td>".$row["group_id"]."</td>";
 									    echo "<td>";
 										   if($row["displayname"]!="")
