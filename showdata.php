@@ -111,8 +111,10 @@
 									    echo "</td>";
 									    echo "<td>".$row["message_type"]."</td>";
 									    echo "<td>";
-										if($row["message_type"] == "sticker" || $row["message_type"] == "location" || $row["message_type"] =="text")
+										if($row["message_type"] == "sticker" || $row["message_type"] =="text")
 											echo $row["message"];
+										else if($row["message_type"] == "location")
+											echo $row["message"]." ".$row["location"];
 										else
 										{
 											echo "<iframe width='300px' height='300px' src='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."'></iframe><br>";
