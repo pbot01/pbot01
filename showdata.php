@@ -94,23 +94,28 @@
 								if ($result->num_rows > 0) {
 								    // output data of each row
 								    while($row = $result->fetch_assoc()) {
-								    echo "<tr>";
-								    echo "<td>".$row["time"]."</td>";
-								    echo "<td>".$row["group_id"]."</td>";
-								    echo "<td>".$row["displayname"]."</td>";
-								    echo "<td>".$row["message_type"]."</td>";
-								    echo "<td>";
-									if($row["message_type"] == "location" || $row["message_type"] =="text")
-										echo $row["message"];
-									else
-										echo "<iframe width='300px' height='300px' src='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."'></iframe>";
-// 										echo "<a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a>";
-							            echo "</td>";
-								    // echo "<td>".$row["location"]."</td>";
-								    
-									$m_id = $row["message"];
-									$ty = $row["message_type"];	
-									echo "</tr>";
+									    if($row["message_type"]!="")
+									    {
+									    echo "<tr>";
+									    echo "<td>".$row["time"]."</td>";
+									    echo "<td>".$row["group_id"]."</td>";
+									    echo "<td>".$row["displayname"]."</td>";
+									    echo "<td>".$row["message_type"]."</td>";
+									    echo "<td>";
+										if($row["message_type"] == "sticker" || $row["message_type"] == "location" || $row["message_type"] =="text")
+											echo $row["message"];
+										else
+										{
+											echo "<iframe width='300px' height='300px' src='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."'></iframe><br>";
+											echo "<a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a>";
+										}
+									    echo "</td>";
+									    // echo "<td>".$row["location"]."</td>";
+
+										$m_id = $row["message"];
+										$ty = $row["message_type"];	
+										echo "</tr>";
+									    }
 								    }
 								} else {
 								    echo "0 results";
