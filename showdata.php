@@ -103,7 +103,12 @@
 									    echo "<tr>";
 									    echo "<td>".$row["time"]."</td>";
 									    echo "<td>".$row["group_id"]."</td>";
-									    echo "<td>".$row["displayname"]."</td>";
+									    echo "<td>";
+										   if($row["displayname"]!="")
+										    	echo $row["displayname"];
+										    else
+											echo $row["user_id"];
+									    echo "</td>";
 									    echo "<td>".$row["message_type"]."</td>";
 									    echo "<td>";
 										if($row["message_type"] == "sticker" || $row["message_type"] == "location" || $row["message_type"] =="text")
