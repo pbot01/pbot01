@@ -48,15 +48,15 @@
 			<table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
 			  <thead>
 			    <tr>
-			      <th class="th-sm">Time
+			      <th class="th-sm" width="30%">Time
 			      </th>
-			      <th class="th-sm">Group id
+			      <th class="th-sm" width="20%">Group id
 			      </th>
-			      <th class="th-sm">Displayname
+			      <th class="th-sm" width="15%">Displayname
 			      </th>
-			      <th class="th-sm">Message type
+			      <th class="th-sm" width="5%">Message type
 			      </th>
-			      <th class="th-sm">Message
+			      <th class="th-sm" width="30%">Message
 			      </th>
 			      <!-- <th class="th-sm">Location
 			      </th> -->
@@ -103,7 +103,7 @@
 									if($row["message_type"] == "location" || $row["message_type"] =="text")
 										echo $row["message"];
 									else
-										echo "<center><a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a></center>";
+										echo "<a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a>";
 							            echo "</td>";
 								    // echo "<td>".$row["location"]."</td>";
 								    
