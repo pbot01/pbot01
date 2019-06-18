@@ -28,7 +28,7 @@
 		<style>
 			div.container {
 			    margin: 0 auto;
-			    max-width:760px;
+			    max-width:100%;
 			}
 			div.header {
 			    margin: 100px auto;
@@ -43,7 +43,7 @@
 		</style>
 	</head>
 	<body>
-		<div class="header"><h1>Data LINE </h1></div>
+		<div class="header"><center><h1>Data on LINE Bot </h1></center></div>
 		<div class="container">
 			<table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
 			  <thead>
@@ -99,7 +99,12 @@
 								    echo "<td>".$row["group_id"]."</td>";
 								    echo "<td>".$row["displayname"]."</td>";
 								    echo "<td>".$row["message_type"]."</td>";
-								    echo "<td>".$row["message"]."</td>";
+								    echo "<td>";
+									if($row["message_type"] == "location" || $row["message_type"] =="message")
+										echo $row["message"];
+									else
+										echo "<center><a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a></center>";
+							            echo "</td>";
 								    // echo "<td>".$row["location"]."</td>";
 								    
 									$m_id = $row["message"];
