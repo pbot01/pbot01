@@ -103,7 +103,8 @@
 									if($row["message_type"] == "location" || $row["message_type"] =="text")
 										echo $row["message"];
 									else
-										echo "<a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a>";
+										<iframe width="300px" height="300px" src='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."'></iframe>
+// 										echo "<a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a>";
 							            echo "</td>";
 								    // echo "<td>".$row["location"]."</td>";
 								    
