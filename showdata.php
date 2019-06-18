@@ -28,7 +28,7 @@
 		<style>
 			div.container {
 			    margin: 0 auto;
-			    max-width:100%;
+			    max-width:760px;
 			}
 			div.header {
 			    margin: 100px auto;
@@ -58,8 +58,8 @@
 			      </th>
 			      <th class="th-sm">Message
 			      </th>
-			      <th class="th-sm">Location
-			      </th>
+			      <!-- <th class="th-sm">Location
+			      </th> -->
 			      
 			    </tr>
 			  </thead>
@@ -100,7 +100,7 @@
 								    echo "<td>".$row["displayname"]."</td>";
 								    echo "<td>".$row["message_type"]."</td>";
 								    echo "<td>".$row["message"]."</td>";
-								    echo "<td>".$row["location"]."</td>";
+								    // echo "<td>".$row["location"]."</td>";
 								    
 									$m_id = $row["message"];
 									$ty = $row["message_type"];	
