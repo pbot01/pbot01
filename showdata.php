@@ -3,9 +3,9 @@
 	<title>Data LINE</title>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
-		<script type="text/javascript" language="javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://pbot01.herokuapp.com/css/jquery.dataTables.css">
+		<script type="text/javascript" language="javascript" src="https://pbot01.herokuapp.com/js/jquery.js"></script>
+		<script type="text/javascript" language="javascript" src="https://pbot01.herokuapp.com/js/jquery.dataTables.js"></script>
 		<style>
 			div.container {
 			    margin: 0 auto;
