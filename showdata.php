@@ -26,6 +26,10 @@
 			});
 		</script>
 		<style>
+			table, th, td {
+			  border: 1px solid black;
+			  border-collapse: collapse;
+			}
 			div.container {
 			    margin: 0 auto;
 			    max-width:80%;
