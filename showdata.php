@@ -48,18 +48,19 @@
 			<table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
 			  <thead>
 			    <tr>
-			      <th class="th-sm">Name
+			      <th class="th-sm">Time
 			      </th>
-			      <th class="th-sm">Position
+			      <th class="th-sm">Group id
 			      </th>
-			      <th class="th-sm">Office
+			      <th class="th-sm">Displayname
 			      </th>
-			      <th class="th-sm">Age
+			      <th class="th-sm">Message type
 			      </th>
-			      <th class="th-sm">Start date
+			      <th class="th-sm">Message
 			      </th>
-			      <th class="th-sm">Salary
+			      <th class="th-sm">Location
 			      </th>
+			      
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -94,12 +95,13 @@
 								    // output data of each row
 								    while($row = $result->fetch_assoc()) {
 								    echo "<tr>";
-								    echo "<td>".$row["time"]."<td>";
-								    echo "<td>".$row["group_id"]."<td>";
-								    echo "<td>".$row["displayname"]."<td>";
-								    echo "<td>".$row["message"]."<td>";
-								    echo "<td>".$row["location"]."<td>";
-								    echo "<td>".$row["message_type"]."<td>";
+								    echo "<td>".$row["time"]."</td>";
+								    echo "<td>".$row["group_id"]."</td>";
+								    echo "<td>".$row["displayname"]."</td>";
+								    echo "<td>".$row["message_type"]."</td>";
+								    echo "<td>".$row["message"]."</td>";
+								    echo "<td>".$row["location"]."</td>";
+								    
 									$m_id = $row["message"];
 									$ty = $row["message_type"];	
 									echo "</tr>";
@@ -110,22 +112,7 @@
 								$conn->close();
 					?>
 			  </tbody>
-			  <tfoot>
-			    <tr>
-			      <th>Name
-			      </th>
-			      <th>Position
-			      </th>
-			      <th>Office
-			      </th>
-			      <th>Age
-			      </th>
-			      <th>Start date
-			      </th>
-			      <th>Salary
-			      </th>
-			    </tr>
-			  </tfoot>
+
 			</table>
 		</div>
 	</body>
