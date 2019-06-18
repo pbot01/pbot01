@@ -46,17 +46,17 @@
 		<div class="header"><center><h1>Data on LINE Bot </h1></center></div>
 		<div class="container">
 			<table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
-			  <thead style="backbround-color='green'">
+			  <thead>
 			    <tr>
-			      <th class="th-sm" width="30%">Time
+			      <th class="th-sm" style="background-color:#f1f1c1" width="20%">Time
 			      </th>
-			      <th class="th-sm" width="20%">Group id
+			      <th class="th-sm" style="background-color:#f1f1c1" width="25%">Group id
 			      </th>
-			      <th class="th-sm" width="15%">Displayname
+			      <th class="th-sm" style="background-color:#f1f1c1" width="20%">Displayname
 			      </th>
-			      <th class="th-sm" width="5%">Message type
+			      <th class="th-sm" style="background-color:#f1f1c1" width="5%">Message type
 			      </th>
-			      <th class="th-sm" width="30%">Message
+			      <th class="th-sm" style="background-color:#f1f1c1" width="30%">Message
 			      </th>
 			      <!-- <th class="th-sm">Location
 			      </th> -->
