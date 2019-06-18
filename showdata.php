@@ -28,7 +28,7 @@
 		<style>
 			div.container {
 			    margin: 0 auto;
-			    max-width:760px;
+			    max-width:100%;
 			}
 			div.header {
 			    margin: 100px auto;
