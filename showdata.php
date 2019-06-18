@@ -28,7 +28,7 @@
 		<style>
 			div.container {
 			    margin: 0 auto;
-			    max-width:100%;
+			    max-width:80%;
 			}
 			div.header {
 			    margin: 100px auto;
@@ -46,7 +46,7 @@
 		<div class="header"><center><h1>Data on LINE Bot </h1></center></div>
 		<div class="container">
 			<table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
-			  <thead>
+			  <thead style="backbround-color='green'">
 			    <tr>
 			      <th class="th-sm" width="30%">Time
 			      </th>
