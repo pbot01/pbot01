@@ -77,10 +77,10 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 			
-			$servername = "pbot01.hopto.org";
-			$username = "research_usr";
+			$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
+			$username = "pbot02";
 			$password = "123456789";
-			$dbname = "pbot01";
+			$dbname = "pbot02db";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -158,10 +158,10 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 			
-			$servername = "pbot01.hopto.org";
-			$username = "research_usr";
+			$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
+			$username = "pbot02";
 			$password = "123456789";
-			$dbname = "pbot01";
+			$dbname = "pbot02db";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -237,10 +237,10 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 			
-			$servername = "pbot01.hopto.org";
-			$username = "research_usr";
+			$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
+			$username = "pbot02";
 			$password = "123456789";
-			$dbname = "pbot01";
+			$dbname = "pbot02db";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
