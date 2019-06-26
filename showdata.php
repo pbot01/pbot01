@@ -70,7 +70,7 @@
 			  <tbody>
 			    <?php // callback.php
 
-					$id = $_GET["no"];
+					//$id = $_GET["no"];
 					header('Content-type:text/html; charset=utf-8');
 					require "vendor/autoload.php";
 					require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
