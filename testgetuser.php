@@ -8,10 +8,10 @@ require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'RhQrCpgxwJ3DUCe2/uDut4sgB9cTSFx7XJ0337EKGUgs6b/Jr3haYG51CRlsK3OHY77Gn5rYCYrcjLFCD2Rsdq813OPLWNSOpfV5jGuVOfWLYoNXODd633yT7wNlnIhTEw/6aFxep0doAcFYp8YTbQdB04t89/1O/w1cDnyilFU=';
 
 
-			$servername = "pbot01.hopto.org";
-			$username = "research_usr";
+			$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
+			$username = "pbot02";
 			$password = "123456789";
-			$dbname = "pbot01";
+			$dbname = "pbot02db";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
