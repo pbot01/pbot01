@@ -79,9 +79,9 @@
 
 
 								$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
-								$username = "pbot02db";
+								$username = "pbot02";
 								$password = "123456789";
-								$dbname = "pbot02";
+								$dbname = "pbot02db";
 								// Create connection
 								$conn = new mysqli($servername, $username, $password, $dbname);
 								// Check connection
