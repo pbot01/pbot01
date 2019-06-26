@@ -88,7 +88,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (message_type,time,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			$sql = "INSERT INTO pbot02db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
@@ -169,7 +169,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (message_type,time,user_id,message,group_id,displayname,location) VALUES ('location',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."', '".$lo."')";
+			$sql = "INSERT INTO pbot02db.chatbot (message_type,time_update,user_id,message,group_id,displayname,location) VALUES ('location',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."', '".$lo."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
@@ -248,7 +248,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO chatbot (message_type,time,user_id,message,group_id,displayname) VALUES ('".$ty."',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			$sql = "INSERT INTO pbot02db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('".$ty."',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
