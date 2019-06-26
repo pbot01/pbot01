@@ -92,7 +92,7 @@
 
 								$m_id = "";
 								$ty = "";
-								$sql = "SELECT *,CONVERT_TZ(time,'+00:00','+07:00') as timez FROM chatbot ";
+								$sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot02db.chatbot ";
 								$result = $conn->query($sql);
 
 								if ($result->num_rows > 0) {
