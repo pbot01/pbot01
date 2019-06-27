@@ -77,11 +77,10 @@
 
 					$access_token = 'HyW97ugLh5mEBYG+G2VCRbXrfqajv+kOrR+uHtkyItGUABVj7AfJ3+gp8j0VykAov1yoQeM09Zpft/LYPj4FcqF0fEHWXLbqzb1gaTZSxuUkTrYUWIzQBqf8v39IGKVW3G3+wwZ3xEAgcPgggMGNyAdB04t89/1O/w1cDnyilFU=';
 
-
-								$servername = "pbot001.cuicotomxesg.us-east-2.rds.amazonaws.com";
-								$username = "pbot001";
-								$password = "123456789";
-								$dbname = "pbot001db";
+					$servername = "pbot001.cuicotomxesg.us-east-2.rds.amazonaws.com";
+					$username = "pbot001";
+					$password = "123456789";
+					$dbname = "pbot001db";
 								// Create connection
 								$conn = new mysqli($servername, $username, $password, $dbname);
 								// Check connection
