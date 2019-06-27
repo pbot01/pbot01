@@ -46,23 +46,23 @@ if (!is_null($events['events'])) {
 			
 			$text .= $disname;
 			
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			//mysqli_set_charset($conn,"utf8");
-			if ($conn->connect_error) {
-				$text .= "connection error ";
-			    die("Connection failed: " . $conn->connect_error);
+// 			// Create connection
+// 			$conn = new mysqli($servername, $username, $password, $dbname);
+// 			// Check connection
+// 			//mysqli_set_charset($conn,"utf8");
+// 			if ($conn->connect_error) {
+// 				$text .= "connection error ";
+// 			    die("Connection failed: " . $conn->connect_error);
 				
-			} 
-			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
-			if ($conn->query($sql) === TRUE) {
+// 			} 
+// 			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+// 			if ($conn->query($sql) === TRUE) {
 				
-				$text .= "success";
-			} else {
-			    	$text .= "fail";
-			}
-			$conn->close();
+// 				$text .= "success";
+// 			} else {
+// 			    	$text .= "fail";
+// 			}
+// 			$conn->close();
 			
 			//$replyToken = $event['replyToken'];
 
