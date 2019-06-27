@@ -72,8 +72,8 @@
 
 					//$id = $_GET["no"];
 					header('Content-type:text/html; charset=utf-8');
-					require "vendor/autoload.php";
-					require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
+					//require "vendor/autoload.php";
+					//require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 					$access_token = 'HyW97ugLh5mEBYG+G2VCRbXrfqajv+kOrR+uHtkyItGUABVj7AfJ3+gp8j0VykAov1yoQeM09Zpft/LYPj4FcqF0fEHWXLbqzb1gaTZSxuUkTrYUWIzQBqf8v39IGKVW3G3+wwZ3xEAgcPgggMGNyAdB04t89/1O/w1cDnyilFU=';
 
@@ -89,10 +89,10 @@
 								    die("Connection failed: " . $conn->connect_error);
 									
 								} 
-								echo "success";
+								//echo "success";
 								$m_id = "";
 								$ty = "";
-								$sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot02db.chatbot ";
+								$sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot001db.chatbot ";
 								$result = $conn->query($sql);
 
 								if ($result->num_rows > 0) {
