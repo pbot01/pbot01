@@ -27,38 +27,38 @@ if (!is_null($events['events'])) {
 			$text = $event['source']['userId'].' ';
 			$text .= date('Y-m-d H:i:s').' ';
 			$text .= $event['message']['text'].' ';
-			$text = $content;
+			$text .= $content;
 			$replyToken = $event['replyToken'];
 
 			
 
 			// Build message to reply back
 
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
+// 			$messages = [
+// 				'type' => 'text',
+// 				'text' => $text
+// 			];
 
 			// Make a POST Request to Messaging API to reply to sender
 
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
+// 			$url = 'https://api.line.me/v2/bot/message/reply';
+// 			$data = [
+// 				'replyToken' => $replyToken,
+// 				'messages' => [$messages],
+// 			];
 
-			$post = json_encode($data);
+// 			$post = json_encode($data);
 		
-			// reply message	
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
+// 			// reply message	
+// 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+// 			$ch = curl_init($url);
+// 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+// 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+// 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+// 			$result = curl_exec($ch);
+// 			curl_close($ch);
 
 // 			//get display name
 			
@@ -76,7 +76,7 @@ if (!is_null($events['events'])) {
 
 			
 
-			$text = "display";
+			$text .= $disname;
 			
 			//$replyToken = $event['replyToken'];
 
@@ -107,7 +107,6 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			
 			
 			echo $result . "\r\n";
 			
