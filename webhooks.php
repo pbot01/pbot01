@@ -30,36 +30,6 @@ if (!is_null($events['events'])) {
 			$text .= $content;
 			$replyToken = $event['replyToken'];
 
-			
-
-			// Build message to reply back
-
-// 			$messages = [
-// 				'type' => 'text',
-// 				'text' => $text
-// 			];
-
-			// Make a POST Request to Messaging API to reply to sender
-
-// 			$url = 'https://api.line.me/v2/bot/message/reply';
-// 			$data = [
-// 				'replyToken' => $replyToken,
-// 				'messages' => [$messages],
-// 			];
-
-// 			$post = json_encode($data);
-		
-// 			// reply message	
-// 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-// 			$ch = curl_init($url);
-// 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-// 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-// 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// 			$result = curl_exec($ch);
-// 			curl_close($ch);
-
 // 			//get display name
 			
 			$url = "https://api.line.me/v2/bot/profile/".$uid;
@@ -73,10 +43,25 @@ if (!is_null($events['events'])) {
 			$profile =  json_decode($result, true); 
 			$disname = $profile['displayName'];
 			curl_close($ch);
-
 			
-
 			$text .= $disname;
+			
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			mysqli_set_charset($conn,"utf8");
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+				$text .= "connection error ";
+			} 
+			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			if ($conn->query($sql) === TRUE) {
+				
+				$text .= "success";
+			} else {
+			    	$text .= "fail";
+			}
+			$conn->close();
 			
 			//$replyToken = $event['replyToken'];
 
@@ -107,56 +92,6 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			
-			echo $result . "\r\n";
-			
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			mysqli_set_charset($conn,"utf8");
-			if ($conn->connect_error) {
-			    die("Connection failed: " . $conn->connect_error);
-				$text .= "connection error ";
-			} 
-			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
-			if ($conn->query($sql) === TRUE) {
-				
-				$text .= "success";
-			} else {
-			    	$text .= "fail";
-			}
-			$conn->close();
-			
-			
-			
-			// Build message to reply back
-
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
-
-			// Make a POST Request to Messaging API to reply to sender
-
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-
-			$post = json_encode($data);
-		
-			// reply message	
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-			
 			
 			echo $result . "\r\n";
 
