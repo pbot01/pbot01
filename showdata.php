@@ -88,8 +88,9 @@
 								mysqli_set_charset($conn,"utf8");
 								if ($conn->connect_error) {
 								    die("Connection failed: " . $conn->connect_error);
+									
 								} 
-
+								echo "success";
 								$m_id = "";
 								$ty = "";
 								$sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot02db.chatbot ";
