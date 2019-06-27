@@ -83,7 +83,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO pbot001db.chatbot (message_type,time,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
