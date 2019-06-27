@@ -4,7 +4,10 @@ require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = 'RhQrCpgxwJ3DUCe2/uDut4sgB9cTSFx7XJ0337EKGUgs6b/Jr3haYG51CRlsK3OHY77Gn5rYCYrcjLFCD2Rsdq813OPLWNSOpfV5jGuVOfWLYoNXODd633yT7wNlnIhTEw/6aFxep0doAcFYp8YTbQdB04t89/1O/w1cDnyilFU=';
-
+$servername = "pbot001.cuicotomxesg.us-east-2.rds.amazonaws.com";
+$username = "pbot001";
+$password = "123456789";
+$dbname = "pbot001db";
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -26,8 +29,6 @@ if (!is_null($events['events'])) {
 			$text .= $event['message']['text'].' ';
 			$text = $content;
 			$replyToken = $event['replyToken'];
-
-			
 
 			// Build message to reply back
 
@@ -70,17 +71,9 @@ if (!is_null($events['events'])) {
 			$profile =  json_decode($result, true); 
 			$disname = $profile['displayName'];
 			curl_close($ch);
-			
-			
-			
-			
 
 			echo $result . "\r\n";
-			
-			$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
-			$username = "pbot02";
-			$password = "123456789";
-			$dbname = "pbot02db";
+
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -88,7 +81,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO pbot02db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
@@ -128,17 +121,6 @@ if (!is_null($events['events'])) {
 			];
 
 			$post = json_encode($data);
-		
-			// reply message	
-// 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-// 			$ch = curl_init($url);
-// 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-// 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-// 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// 			$result = curl_exec($ch);
-// 			curl_close($ch);
 
 			//get display name
 			
@@ -153,15 +135,9 @@ if (!is_null($events['events'])) {
 			$profile =  json_decode($result, true); 
 			$disname = $profile['displayName'];
 			curl_close($ch);
-			
-			
 
 			echo $result . "\r\n";
-			
-			$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
-			$username = "pbot02";
-			$password = "123456789";
-			$dbname = "pbot02db";
+
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -169,7 +145,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO pbot02db.chatbot (message_type,time_update,user_id,message,group_id,displayname,location) VALUES ('location',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."', '".$lo."')";
+			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname,location) VALUES ('location',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."', '".$lo."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
@@ -179,7 +155,7 @@ if (!is_null($events['events'])) {
 			$conn->close();
 		}
 		else {
-						// Get text sent
+			// Get text sent
 			$uid = $event['source']['userId'];
 			$gid = $event['source']['groupId'];
 			$ty = $event['message']['type'];
@@ -207,17 +183,6 @@ if (!is_null($events['events'])) {
 			];
 
 			$post = json_encode($data);
-		
-			// reply message	
-// 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-// 			$ch = curl_init($url);
-// 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// 			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-// 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-// 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// 			$result = curl_exec($ch);
-// 			curl_close($ch);
 
 			//get display name
 			
@@ -232,15 +197,8 @@ if (!is_null($events['events'])) {
 			$profile =  json_decode($result, true); 
 			$disname = $profile['displayName'];
 			curl_close($ch);
-			
-			
 
 			echo $result . "\r\n";
-			
-			$servername = "pbot02db.cuicotomxesg.us-east-2.rds.amazonaws.com";
-			$username = "pbot02";
-			$password = "123456789";
-			$dbname = "pbot02db";
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
 			// Check connection
@@ -248,7 +206,7 @@ if (!is_null($events['events'])) {
 			if ($conn->connect_error) {
 			    die("Connection failed: " . $conn->connect_error);
 			} 
-			$sql = "INSERT INTO pbot02db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('".$ty."',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('".$ty."',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
 			if ($conn->query($sql) === TRUE) {
 				
 				$text = "success";
