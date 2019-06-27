@@ -48,8 +48,8 @@ if (!is_null($events['events'])) {
 			
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			mysqli_set_charset($conn,"utf8");
+// 			// Check connection
+// 			mysqli_set_charset($conn,"utf8");
 // 			if ($conn->connect_error) {
 // 				$text .= "connection error ";
 // 			    die("Connection failed: " . $conn->connect_error);
