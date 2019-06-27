@@ -62,26 +62,43 @@ if (!is_null($events['events'])) {
 
 // 			//get display name
 			
-// 			$url = "https://api.line.me/v2/bot/profile/".$uid;
-// 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-// 			$ch = curl_init($url);
-// 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-// 			$result = curl_exec($ch);
-// 			//echo $result;
-// 			$profile =  json_decode($result, true); 
-// 			$disname = $profile['displayName'];
-// 			curl_close($ch);
+			$url = "https://api.line.me/v2/bot/profile/".$uid;
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			$result = curl_exec($ch);
+			//echo $result;
+			$profile =  json_decode($result, true); 
+			$disname = $profile['displayName'];
+			curl_close($ch);
 
 			
 
-			$text = "test";
+			$text = $disname;
 			
 			//$replyToken = $event['replyToken'];
 
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			mysqli_set_charset($conn,"utf8");
+			if ($conn->connect_error) {
+			    die("Connection failed: " . $conn->connect_error);
+				$text .= "connection error ";
+			} 
+			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
+			if ($conn->query($sql) === TRUE) {
+				
+				$text .= "success";
+			} else {
+			    	$text .= "fail";
+			}
+			$conn->close();
 			
-
+			
+			
 			// Build message to reply back
 
 			$messages = [
@@ -112,25 +129,6 @@ if (!is_null($events['events'])) {
 			
 			
 			echo $result . "\r\n";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			mysqli_set_charset($conn,"utf8");
-			if ($conn->connect_error) {
-			    die("Connection failed: " . $conn->connect_error);
-				$text .= "connection error ";
-			} 
-			$sql = "INSERT INTO pbot001db.chatbot (message_type,time_update,user_id,message,group_id,displayname) VALUES ('text',SYSDATE(),'".$uid."', '".$ms."', '".$gid."', '".$disname."')";
-			if ($conn->query($sql) === TRUE) {
-				
-				$text = "success";
-			} else {
-			    	$text = "fail";
-			}
-			$conn->close();
-			
-			
 
 		}
 		else if ($event['type'] == 'message' && $event['message']['type'] == 'location') {
