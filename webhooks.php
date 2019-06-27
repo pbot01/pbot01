@@ -60,19 +60,19 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			//get display name
+// 			//get display name
 			
-			$url = "https://api.line.me/v2/bot/profile/".$uid;
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			$result = curl_exec($ch);
-			//echo $result;
-			$profile =  json_decode($result, true); 
-			$disname = $profile['displayName'];
-			curl_close($ch);
+// 			$url = "https://api.line.me/v2/bot/profile/".$uid;
+// 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+// 			$ch = curl_init($url);
+// 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+// 			$result = curl_exec($ch);
+// 			//echo $result;
+// 			$profile =  json_decode($result, true); 
+// 			$disname = $profile['displayName'];
+// 			curl_close($ch);
 
 			
 
