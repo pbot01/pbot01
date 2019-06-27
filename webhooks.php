@@ -76,7 +76,7 @@ if (!is_null($events['events'])) {
 
 			
 
-			$text = $disname;
+			$text = "test";
 			
 			//$replyToken = $event['replyToken'];
 
