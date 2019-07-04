@@ -30,7 +30,7 @@
 					<img src="Login_v1/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form" method="get" action="waiting_user.php">
+				<form class="login100-form validate-form" method="get" action="waiting_approve.php">
 					<span class="login100-form-title">
 						Registoration
 					</span>
@@ -45,6 +45,14 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="cf_password" name="cf_pass" placeholder="Confirm Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
