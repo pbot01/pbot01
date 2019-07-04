@@ -112,7 +112,7 @@
 
 			else {
 				alert("Password not match!");
-				return false;
+				form.reject();
 			}
 		}
 	</script>
