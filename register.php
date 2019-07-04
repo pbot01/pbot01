@@ -30,7 +30,7 @@
 					<img src="Login_v1/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="get" action="waiting_user.php">
 					<span class="login100-form-title">
 						Registoration
 					</span>
