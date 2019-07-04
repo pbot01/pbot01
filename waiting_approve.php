@@ -17,9 +17,7 @@
 			} 
 
 		      $stmt = $conn->prepare('INSERT INTO pbot001db.waiting_approve (username,hashpass,name) VALUES (?,?,?)');
-		      $stmt->bind_param('s', $user); 
-		      $stmt->bind_param('s', $hash_pass); 
-		      $stmt->bind_param('s', $name); 
+		      $stmt->bind_param('sss', $user, $hash_pass, $name); 
 			$stmt->execute();
       			$stmt->close();
 			$conn->close();
