@@ -16,16 +16,12 @@
 			    die("Connection failed: " . $conn->connect_error);
 			} 
 
-      $stmt = $conn->prepare('INSERT INTO pbot001db.waiting_approve (username,hashpass,name) VALUES (?,?,?)');
-      $stmt->bind_param('s', $user); 
-      $stmt->bind_param('s', $hash_pass); 
-      $stmt->bind_param('s', $name); 
-			if ($stmt->execute() === TRUE) {
-				
-				$text = "success";
-			} else {
-			    	$text = "fail";
-			}
-      $stmt->close();
+		      $stmt = $conn->prepare('INSERT INTO pbot001db.waiting_approve (username,hashpass,name) VALUES (?,?,?)');
+		      $stmt->bind_param('s', $user); 
+		      $stmt->bind_param('s', $hash_pass); 
+		      $stmt->bind_param('s', $name); 
+			$stmt->execute();
+      			$stmt->close();
 			$conn->close();
+		echo "successfull";
 ?>
