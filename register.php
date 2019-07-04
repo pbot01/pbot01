@@ -112,7 +112,7 @@
 
 			else {
 				alert("Password not match!");
-				window.location.href = "/register.php";
+				
 			}
 		}
 	</script>
