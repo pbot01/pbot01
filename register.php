@@ -112,6 +112,7 @@
 
 			else {
 				alert("Password not match!");
+				return false;
 			}
 		}
 	</script>
