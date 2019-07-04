@@ -44,7 +44,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pass" id="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -52,7 +52,7 @@
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="cf_password" name="cf_pass" placeholder="Confirm Password">
+						<input class="input100" type="password" name="cf_pass" id="cf_pass" placeholder="Confirm Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -60,7 +60,7 @@
 					</div>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" onclick="check(this.form);">
 							Register
 						</button>
 					</div>
@@ -100,6 +100,20 @@
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})
+	</script>
+	<script >
+		function check(form)
+		{
+			var pass = document.getElementById("pass").value;
+			var cf_pass = document.getElementById("cf_pass").value;
+			if (pass==cf_pass) {
+				form.submit();
+			}
+
+			else {
+				alert("Password not match!");
+			}
+		}
 	</script>
 <!--===============================================================================================-->
 	<script src="Login_v1/js/main.js"></script>
