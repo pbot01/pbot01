@@ -43,7 +43,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+       <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -125,7 +125,7 @@
       </li> -->
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
@@ -156,7 +156,17 @@
             <i class="fa fa-bars"></i>
           </button>
 
-
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
@@ -195,12 +205,12 @@
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <<!-- div class="card-header py-3">
+            <!-- div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Data</h6>
             </div> -->
             <div class="card-body">
               <div class="table-responsive">
-                <table id="dataTable" class="table table-bordered" cellspacing="0" width="100%">
+                <table id="dataTable" class="table table-bordered" cellspacing="0">
                   <thead>
                     <tr>
                       <th >Time
