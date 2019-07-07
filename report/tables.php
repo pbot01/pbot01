@@ -268,7 +268,7 @@
                                 echo $row["message"]." ".$row["location"];
                               else
                               {
-                                echo "<iframe width='300px' height='300px' src='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."'></iframe><br>";
+                                //echo "<iframe width='300px' height='300px' src='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."'></iframe><br>";
                                 echo "<a href='https://pbot01.herokuapp.com/testgetuser.php?no=".$row["no"]."' target='_blank'>show</a>";
                               }
                                 echo "</td>";
