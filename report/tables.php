@@ -243,7 +243,7 @@
                           //echo "success";
                           $m_id = "";
                           $ty = "";
-                          $sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot001db.chatbot ";
+                          $sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot001db.chatbot WHERE DATE(time_update) = '2019-07-01'";
                           $result = $conn->query($sql);
 
                           if ($result->num_rows > 0) {
