@@ -200,7 +200,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table id="dtMaterialDesignExample" class="table table-striped" cellspacing="0" width="100%">
+                <table id="dataTable" class="table table-bordered" cellspacing="0" width="100%">
                   <thead>
                     <tr>
                       <th class="th-sm" style="background-color:#f1f1c1" width="20%">Time
@@ -300,7 +300,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; CHAT BOT DIV2 2019</span>
           </div>
         </div>
       </footer>
