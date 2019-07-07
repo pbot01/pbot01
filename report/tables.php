@@ -191,27 +191,27 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+          <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-            </div>
+            <<!-- div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Data</h6>
+            </div> -->
             <div class="card-body">
               <div class="table-responsive">
                 <table id="dataTable" class="table table-bordered" cellspacing="0" width="100%">
                   <thead>
                     <tr>
-                      <th class="th-sm" style="background-color:#f1f1c1" width="20%">Time
+                      <th >Time
                       </th>
-                      <th class="th-sm" style="background-color:#f1f1c1" width="25%">Group id
+                      <th >Group id
                       </th>
-                      <th class="th-sm" style="background-color:#f1f1c1" width="20%">Displayname
+                      <th >Displayname
                       </th>
-                      <th class="th-sm" style="background-color:#f1f1c1" width="5%">Message type
+                      <th >Message type
                       </th>
-                      <th class="th-sm" style="background-color:#f1f1c1" width="30%">Message
+                      <th >Message
                       </th>
                       <!-- <th class="th-sm">Location
                       </th> -->
