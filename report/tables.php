@@ -255,7 +255,11 @@
                           //echo "success";
                           $m_id = "";
                           $ty = "";
-                          $sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot001db.chatbot WHERE DATE(time_update) = CURDATE()";
+                          
+                          if(isset($_GET["date"]))
+                              $sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot001db.chatbot WHERE DATE(time_update) = '".$_GET["date"]."'";
+                          else
+                              $sql = "SELECT *,CONVERT_TZ(time_update,'+00:00','+07:00') as timez FROM pbot001db.chatbot WHERE DATE(time_update) = CURDATE()";  
                           $result = $conn->query($sql);
 
                           if ($result->num_rows > 0) {
