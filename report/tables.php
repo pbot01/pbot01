@@ -267,8 +267,10 @@
                                 echo "<td>";
                                  if($row["displayname"]!="")
                                     echo $row["displayname"];
+                                 else if($row["user_id"]!="")
+                                    echo $row["user_id"];
                                   else
-                                echo $row["user_id"];
+                                    echo "Anonymous";
                                 echo "</td>";
                                 echo "<td>".$row["message_type"]."</td>";
                                 echo "<td>";
